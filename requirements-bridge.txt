@@ -1,0 +1,48 @@
+# FEniCSx <-> vCANN bridge environment (fenicsx/), verified on Python 3.12.3.
+#
+# NOT the training environment: training the vCANN uses TensorFlow 2.10 / Keras
+# 2 (requirements.txt), the bridge runs Keras 3, and the two cannot share an
+# environment. Keep them in separate venvs.
+#
+# `.venv-bridge` is a --system-site-packages venv over an apt-installed dolfinx:
+#
+#     sudo apt install fenicsx python3-dolfinx python3-dolfinx-real \
+#         python3-petsc4py python3-mpi4py
+#     python3 -m venv --system-site-packages .venv-bridge
+#     .venv-bridge/bin/pip install -r requirements-bridge.txt
+#
+# Only the two packages below are pip-installed. Everything FEniCSx comes from
+# apt and must NOT be pip-installed on top: a pip ufl alongside the system ufl
+# makes two implementations importable at once, which is the failure documented
+# in fenicsx/docs/ENVIRONMENT_TROUBLESHOOTING.md.
+
+# Reads the trained VHB4910 checkpoint and rebuilds the sub-networks. Pulls in
+# keras 3.14.1 and h5py as dependencies. Keras 3 renamed the DepthwiseConv1D
+# checkpoint weight, which is why fenicsx/bridge/vcann_local_step.py maps
+# "kernel" back to "depthwise_kernel" when loading a Keras 2 checkpoint.
+tensorflow==2.21.0
+
+# The vCANN local step registered as a FEMExternalOperator
+# (fenicsx/models/embedded2d_vcann_extop.py). Keep on the series matching the
+# installed DOLFINx (0.10.x).
+dolfinx-external-operator==0.10.1
+
+# ---------------------------------------------------------------------------
+# Inherited from the system (apt), recorded for reproducibility only.
+# Do not pip-install these into .venv-bridge.
+#
+#   fenics-dolfinx           0.10.0.post2
+#   fenics-basix             0.10.0.post0
+#   fenics-ufl               2025.2.1
+#   fenics-ffcx              0.10.1.post0
+#   mpi4py                   3.1.5
+#   petsc4py                 3.19.6
+#   gmsh                     4.12.1
+#   numpy                    1.26.4
+#   matplotlib               3.6.3
+#
+# For a from-scratch pip or source DOLFINx install instead of apt (a different
+# setup from the one above, and not the one this project is verified against),
+# the Python-side packages the DOLFINx docs list are: numpy, cffi,
+# fenics-basix, fenics-ffcx, fenics-ufl, mpi4py, petsc4py.
+# ---------------------------------------------------------------------------

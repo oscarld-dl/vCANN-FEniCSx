@@ -1,0 +1,15 @@
+.venv/
+.venv-bridge/
+.vscode/
+__pycache__/
+*.py[cod]
+*:Zone.Identifier
+fenicsx/results/
+
+# Training runs are local, except the one checkpoint the bridge loads
+# (vcann_local_step.py). Re-including it needs this step-by-step form: git
+# cannot un-ignore a path whose parent directory is itself ignored.
+vcann/Results_VHB4910/*
+!vcann/Results_VHB4910/20260422-191716/
+vcann/Results_VHB4910/20260422-191716/*
+!vcann/Results_VHB4910/20260422-191716/ckpt/

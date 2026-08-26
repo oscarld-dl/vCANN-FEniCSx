@@ -1,0 +1,5 @@
+__pycache__/
+models/__pycache__/
+meshes/__pycache__/
+results/*.h5
+results/*.xdmf
