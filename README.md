@@ -6,7 +6,7 @@ O. Ludeña Navarro, F. Flüh, *Deutscher Luft- und Raumfahrtkongress (DLRK)*, 20
 The link and DOI will be added here once the proceedings are published.
 
 <p align="center">
-  <img src="./figures/workflow_for_repo.png" alt="Graphical Abstract" width="900">
+  <img src="./figures/workflow_for_repo.pdf" alt="Graphical Abstract" width="900">
 </p>
 
 This repository provides a `FEMExternalOperator` interface that embeds a pre-trained
