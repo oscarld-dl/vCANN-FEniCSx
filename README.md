@@ -151,4 +151,4 @@ Deutsches Zentrum für Luft- und Raumfahrt, Lilienthalplatz 7, 38108 Braunschwei
 
 ## Contact
 
-If you have any questions, please feel free to contact <oscar.navarro@dlr.de> or open an issue.
+If you have any questions, please feel free to contact <oscar.ludenanavarro@dlr.de> or open an issue.
