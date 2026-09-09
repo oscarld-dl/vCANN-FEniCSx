@@ -1,6 +1,6 @@
 # vCANN-FEniCSx
 
-This is the GitHub repository for the extended abstract
+This is the GitHub repository for the conference paper
 "Bridging Data-Driven vCANN-Based Constitutive Modelling and Finite-Element Simulation for Viscoelastic Materials",
 O. Ludeña, F. Flüh, R. Hein, *Deutscher Luft- und Raumfahrtkongress (DLRK)*, 2026.
 The link and DOI will be added here once the proceedings are published.
